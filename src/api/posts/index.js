@@ -3,11 +3,9 @@ import * as postsCtrl from './posts.ctrl';
 
 const posts = new Router();
 
-posts.get('/', postsCtrl.list);
-posts.post('/', postsCtrl.write);
-posts.get('/:id', postsCtrl.read);
-posts.delete('/:id', postsCtrl.remove);
-posts.put('/:id', postsCtrl.replace);
-posts.patch('/:id', postsCtrl.update);
+posts.post('/add', postsCtrl.add);
+posts.post('/read', postsCtrl.read);
+posts.post('/delete', postsCtrl.remove);
+posts.post('/update', postsCtrl.update);
 
 export default posts;
