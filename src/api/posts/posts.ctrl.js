@@ -123,12 +123,12 @@ export const update = async (ctx) => {
     port: process.env.PORT,
   });
   const { id, key, value } = ctx.request.body;
-
+  const date = new Date().toISOString();
   console.log(id, key, value);
   try {
     const query = {
-      text: `UPDATE snack SET ${key} = $2 WHERE id = $1`,
-      values: [id, value],
+      text: `UPDATE snack SET ${key} = $2, date = $3 WHERE id = $1 `,
+      values: [id, value, date],
     };
     //데이터 베이스 연결
     await client.connect();
